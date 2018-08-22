@@ -1,9 +1,6 @@
 package com.example.javaconcepts;
 
 
-
-import com.google.common.base.Predicates;
-import com.google.common.collect.Collections2;
 import com.google.common.collect.Lists;
 import org.hamcrest.Matchers;
 import org.junit.Test;
@@ -11,7 +8,6 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
@@ -23,9 +19,7 @@ import java.util.stream.IntStream;
 import static junit.framework.TestCase.assertFalse;
 import static junit.framework.TestCase.assertTrue;
 import static org.hamcrest.Matchers.containsInAnyOrder;
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.*;
 
 
 @RunWith(SpringRunner.class)
@@ -94,7 +88,7 @@ public class Java8Tests {
     @Test
     public void whenConvertingOneArrayTypeToAnotherThenCorrect() {
         /*
-        * Transforming one lost to another
+        * Transforming Array of one type to another type
         * */
 
         int a[] = {1,2,3,4};
@@ -109,8 +103,8 @@ public class Java8Tests {
     @Test
     public void whenSortingArrayOfCustomTypeInLineFunctionThenCheck(){
         /*
-        * sorting custom array inline function
-        * */
+         * Sorting An Array of custom class Type With Using Comparator and Inline Function
+         * */
         Node ar[] = { new Node(1,2), new Node(0,1), new Node(3,4), new Node(2,3)};
 
         Arrays.sort(ar, Comparator.comparing(Node::getVal));
@@ -124,7 +118,7 @@ public class Java8Tests {
     @Test
     public void whenSortingArrayOfCustomTypeWithFunctionThenCheck(){
         /*
-        * sorting custom array inline function
+        * Sorting An Array of custom class Type With Using Comparator and Function
         * */
         Function<Node, Integer> func = Node::getVal;
 
