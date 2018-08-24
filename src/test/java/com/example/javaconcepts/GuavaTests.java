@@ -29,7 +29,7 @@ public class GuavaTests {
     @Test
     public void whenFilterWithPredicateThenFiltered() {
         /*
-        * Filtering list using Predicates(Guava)
+        * Filtering list using Predicates(Guava) with Lambda
         * */
         List<String> names = Lists.newArrayList("John", "Jane", "Adam", "Tom");
         List<String> result = names.stream().filter(Predicates.containsPattern("a")::apply).collect(Collectors.toList());
@@ -53,7 +53,7 @@ public class GuavaTests {
     @Test
     public void whenRemoveNullFromCollectionTheRemoved() {
         /*
-        * We can clean up the null values from a collection by filtering it with Predicates.notNull() as in the following example:
+        * Clean up the null values from a collection by filtering it with Predicates.notNull() as in the following example:
         * */
         List<String> names =
                 Lists.newArrayList("John", null, "Jane", null, "Adam", "Tom");

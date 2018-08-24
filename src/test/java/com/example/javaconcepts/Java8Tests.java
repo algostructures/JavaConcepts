@@ -29,7 +29,7 @@ public class Java8Tests {
     @Test
     public void whenFilterWithCustomPredicateThenFiltered() {
         /*
-        * Filtering Using Custom Predicate
+        * Filtering Using Custom Predicate With Lambda
         * */
         Predicate<String> predicate = input -> {
             assert input != null;
