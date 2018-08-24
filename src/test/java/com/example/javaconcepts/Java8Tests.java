@@ -154,10 +154,6 @@ public class Java8Tests {
             return ind == node.ind && val == node.val;
         }
 
-        public int getInd() {
-            return ind;
-        }
-
         public int getVal() {
             return val;
         }
