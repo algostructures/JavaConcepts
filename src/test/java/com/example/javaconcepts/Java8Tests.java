@@ -154,7 +154,7 @@ public class Java8Tests {
             return ind == node.ind && val == node.val;
         }
 
-        public int getVal() {
+        int getVal() {
             return val;
         }
     }

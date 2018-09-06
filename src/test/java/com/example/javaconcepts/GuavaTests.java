@@ -66,6 +66,9 @@ public class GuavaTests {
 
     @Test
     public void whenCheckingIfAllElementsMatchAConditionThenCorrect() {
+        /*
+         * Checking if all the elements match a certain condition
+         * */
         List<String> names = Lists.newArrayList("John", "Jane", "Adam", "Tom");
 
         boolean result = names.stream().allMatch(Predicates.containsPattern("n|m")::apply);
