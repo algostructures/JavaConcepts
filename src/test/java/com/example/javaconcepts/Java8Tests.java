@@ -15,6 +15,7 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 import static junit.framework.TestCase.assertFalse;
 import static junit.framework.TestCase.assertTrue;
@@ -132,7 +133,21 @@ public class Java8Tests {
 
     }
 
+    @Test
+    public void whenConvertingStringToStreamOfCharactersThenCheck(){
+        /*
+        * TODO: Use Assert
+        * */
+        String testString = "Str";
 
+        IntStream intStream = testString.chars();
+
+        Stream<Character> characterStream = testString.chars()
+                .mapToObj(c -> (char) c);
+
+        characterStream.forEach(System.out::print);
+        intStream.forEach(i-> System.out.print((char)i));
+    }
 
 
     class Node {
