@@ -8,9 +8,7 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -147,6 +145,29 @@ public class Java8Tests {
 
         characterStream.forEach(System.out::print);
         intStream.forEach(i-> System.out.print((char)i));
+    }
+
+    @Test
+    public void givenTwoCollections_whenStreamedInParallel_thenCheckOutputDifferent() {
+        List<String> list = Arrays.asList("B", "A", "C", "D", "F");
+        Set<String> set = new TreeSet<>(list);
+
+        Object[] listOutput = list.stream().parallel().toArray();
+        Object[] setOutput = set.stream().parallel().toArray();
+
+        assertEquals("[B, A, C, D, F]", Arrays.toString(listOutput));
+        assertEquals("[A, B, C, D, F]", Arrays.toString(setOutput));
+    }
+
+    @Test
+    public void givenUnsortedStreamInput_whenStreamSorted_thenCheckOrderChanged() {
+        List<Integer> list = Arrays.asList(-3, 10, -4, 1, 3);
+
+        Object[] listOutput = list.stream().toArray();
+        Object[] listOutputSorted = list.stream().sorted().toArray();
+
+        assertEquals("[-3, 10, -4, 1, 3]", Arrays.toString(listOutput));
+        assertEquals("[-4, -3, 1, 3, 10]", Arrays.toString(listOutputSorted));
     }
 
 
